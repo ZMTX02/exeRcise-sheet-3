@@ -178,6 +178,42 @@ d)  Choose one of the variables representing the public response and
 
     What do you notice when comparing the scores of the films in a
     series? Do you see any patterns?
+    
+    */
+    library(dplyr)
+    library(ggplot2)
+    library(stringr)
+
+    pixar_films_clean <- pixar_films_clean %>%
+      mutate(film = str_trim(film) %>% str_to_lower())
+
+    public_response <- public_response %>%
+      mutate(film = str_trim(film) %>% str_to_lower())
+
+    combined_df <- pixar_films_clean %>%
+      left_join(public_response, by = "film")
+
+    score_levels <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
+    combined_df <- combined_df %>%
+      mutate(
+        cinema_score = factor(cinema_score, levels = score_levels, ordered = TRUE)
+      )
+
+    plot_df <- combined_df %>%
+      filter(!is.na(series), !is.na(cinema_score)) %>%
+      arrange(series, release_date) %>%
+      mutate(film = factor(film, levels = unique(film)))
+
+    ggplot(plot_df, aes(x = series, y = as.numeric(cinema_score), fill = film)) +
+      geom_bar(stat = "identity", position = position_dodge()) +
+      labs(
+        film = "Cinema Scores der Pixar-Filmserien",
+        x = "Filmserie",
+        y = "Cinema Score (geordnet)",
+        fill = "Filmtitel"
+      ) +
+      theme_minimal()
+    /*
 
 ## Exercise 4: Open Analysis (4 points)
 
