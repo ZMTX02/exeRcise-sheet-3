@@ -234,6 +234,14 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+    Frage:
+
+    */
+    Was für Lebensmittel verursachen die höchsten CO₂-Emissionen und benötigen gleichzeitig viel Landfläche pro Kilogramm?
+    
+    Die Frage ist wichtig für eine zentrale und nachhaltige Ernährung. Denn CO₂-Emissionen und Landverbrauch die zwei wichtigsten Umweltfaktoren in der Lebensmittelerzeugung sind
+    /*
+
 e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
     You are **not expected** to use advanced statistical models or
