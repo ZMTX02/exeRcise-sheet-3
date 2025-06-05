@@ -246,6 +246,22 @@ e)  Use R to answer your chosen question. Please limit your analysis to
     the functions and techniques we have covered so far in the course.
     You are **not expected** to use advanced statistical models or
     external packages which haven't been introduced.
+    
+    */
+    url <- "https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Environmental%20impacts%20of%20food%20(Clark%20et%20al.%202022)/Environmen       tal%20impacts%20of%20food%20(Clark%20et%20al.%202022).csv"
+    food_impact <- read_csv(url)
+
+    food_df <- food_impact %>%
+      select(
+        food_product = Entity,
+        year = Year,
+        co2_per_kg = ghg_kg,
+        land_use_per_kg = land_use_kg
+      ) %>%
+      filter(!is.na(co2_per_kg), !is.na(land_use_per_kg)) %>%
+      distinct(food_product, .keep_all = TRUE) 
+    /*
+    
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
