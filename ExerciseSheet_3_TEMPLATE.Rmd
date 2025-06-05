@@ -64,6 +64,8 @@ e)  Knit this exercise sheet. Some new files will automatically be
     files, as we only want to track the source files themselves. You
     can, but don't need to create a `.gitignore` file. Just do not
     commit these files manually.
+    
+    #Committed 1e: knitted the RMarkdown and ignored output files
 
 ## Exercise 2: Putting your Repository on GitHub (3 Points)
 
