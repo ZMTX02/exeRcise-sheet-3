@@ -265,6 +265,20 @@ e)  Use R to answer your chosen question. Please limit your analysis to
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+    
+    */
+    ggplot(food_df, aes(x = land_use_per_kg, y = co2_per_kg, label = food_product)) +
+      geom_point(color = "darkred", size = 3, alpha = 0.7) +
+      geom_text(size = 3, vjust = -0.5, check_overlap = TRUE) +
+      labs(
+        title = "Umweltauswirkungen von Lebensmitteln (Clark et al. 2022)",
+        subtitle = "CO₂-Emissionen vs. Landnutzung pro Kilogramm Produkt",
+        x = "Landnutzung (m² pro kg)",
+        y = "CO₂-Emissionen (kg CO₂eq pro kg)",
+        caption = "Daten: Our World in Data / Clark et al. (2022)"
+      ) +
+      theme_minimal()
+    /*
 
 ## Final Note
 
