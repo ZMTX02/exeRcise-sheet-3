@@ -75,6 +75,8 @@ a)  Create a new repository on GitHub in your account named
     `exeRcise-sheet-3`. Make sure you create a **public repository** so
     we are able to see it for grading. Add the link to the repository
     below:
+    Link zum GitHub-Repository:  https://github.com/ZMTX02/exeRcise-sheet-3/tree/main
+    
 b)  Push your code to this new repository by copying and executing the
     snippet on github listed under
     `…or push an existing repository from the command line`.
@@ -95,6 +97,20 @@ a)  Load the `pixar_films` dataset into R. Clean the dataset by removing
     films without a title. Inspect the variable `film_rating`. What are
     the possible values and what do they mean? Create a factor variable
     for the film rating. Why is this appropriate?
+    
+    */
+    pixar_films_clean <- pixar_films %>% 
+    filter(!is.na(film) & film != "")
+
+    unique(pixar_films_clean$film_rating)
+
+
+    pixar_films_clean <- pixar_films_clean %>%
+      mutate(film_rating_factor = factor(film_rating))
+      
+    # film_rating ist kategorisch, keine Reihenfolge nötig,
+
+    /*
 
 <!-- -->
 
