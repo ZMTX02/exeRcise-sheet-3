@@ -153,6 +153,16 @@ c)  Load the `public_response` dataframe into R. Convert the
     levels are defined in ascending order, from the lowest to the
     highest score. Combine `public_response` with the `pixar_films`
     dataset using an appropriate merge variable.
+    
+    */
+    public_response <- public_response %>%
+      mutate(cinema_score = factor(cinema_score, levels = sort(unique(cinema_score))))
+
+    combined_df <- pixar_films_clean %>%
+      left_join(public_response, by = "film")
+
+    glimpse(combined_df)
+    /*
 
 d)  Choose one of the variables representing the public response and
     create a bar plot for the films belonging to a series. Here are the
